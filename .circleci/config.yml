@@ -14,17 +14,6 @@ permission-run: &permission-run
     sudo chown -R circleci:circleci /usr/local/lib/python3.7/site-packages
     sudo chown -R circleci:circleci /usr/local/share/
     
-apt-run: &apt-install
-  name: Install apt packages
-  command: |
-    apt update
-    apt install -y build-essential
-
-sudo-apt-run: &sudo-apt-install
-  name: Install apt packages
-  command: |
-    sudo apt update
-    sudo apt install -y build-essential libopenjp2-7 git
 
 version: 2
 jobs:
@@ -35,7 +24,7 @@ jobs:
       - checkout
       - run: *merge-check
       - run: *permission-run
-      - run: *sudo-apt-install
+      - run: pip install -U pip
       - run: pip install -U tox
       - run: tox -e build_docs
       - store_artifacts:
