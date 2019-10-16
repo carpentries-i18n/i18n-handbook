@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
+from itertools import chain
 
 from setuptools import setup
 from setuptools.config import read_configuration
