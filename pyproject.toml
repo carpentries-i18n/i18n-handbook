@@ -1,0 +1,4 @@
+[ tool.gilesbot ]
+  [ tool.gilesbot.circleci_artifacts.build_docs ]
+    url = "./_build/html"
+    message = "The documentation is built"
