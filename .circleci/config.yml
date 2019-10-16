@@ -28,10 +28,10 @@ jobs:
       - run: pip install -U tox
       - run: tox -e build_docs
       - store_artifacts:
-          path: docs/_build/html
+          path: ./_build/html
       - run:
           name: "Built documentation is available at:"
-          command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}/docs/_build/html/index.html"; echo $DOCS_URL
+          command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}/_build/html/index.html"; echo $DOCS_URL
 
 workflows:
   version: 2
