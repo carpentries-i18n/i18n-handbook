@@ -1,0 +1,45 @@
+merge-check: &merge-check
+  name: Check if we need to merge upstream master
+  command: |
+    if [[ -n "${CIRCLE_PR_NUMBER}" ]]; then
+      git fetch origin --tags
+      git fetch origin +refs/pull/$CIRCLE_PR_NUMBER/merge:pr/$CIRCLE_PR_NUMBER/merge
+      git checkout -qf pr/$CIRCLE_PR_NUMBER/merge
+    fi
+    
+permission-run: &permission-run
+  name: Fix permssions for installing
+  command: |
+    sudo chown -R circleci:circleci /usr/local/bin
+    sudo chown -R circleci:circleci /usr/local/lib/python3.7/site-packages
+    sudo chown -R circleci:circleci /usr/local/share/
+    
+
+version: 2
+jobs:
+  html-docs:
+    docker:
+      - image: circleci/python:3.7
+    steps:
+      - checkout
+      - run: *merge-check
+      - run: *permission-run
+      - run: pip install -U pip
+      - run: pip install -U tox
+      - run: tox -e build_docs
+      - store_artifacts:
+          path: ./_build/html
+      - run:
+          name: "Built documentation is available at:"
+          command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}/_build/html/index.html"; echo $DOCS_URL
+
+notify:
+  webhooks:
+    - url: https://giles.cadair.dev/circleci
+
+workflows:
+  version: 2
+
+  test-documentation:
+    jobs:
+      - html-docs
