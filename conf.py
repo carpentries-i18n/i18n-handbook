@@ -31,6 +31,7 @@ copyright = f"2019-{today_date:%Y}, {author}. Creative Commons Attribution 4.0 I
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    "sphinx.ext.extlinks",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -53,3 +54,8 @@ html_theme = "sphinx_rtd_theme"
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+extlinks = {'project': ('https://github.com/orgs/carpentries-i18n/projects/%s',
+                        'project '),
+            'org-repo': ('https://github.com/carpentries-i18n/%s', '')
+            }
