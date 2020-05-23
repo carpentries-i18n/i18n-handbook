@@ -12,14 +12,17 @@
 #
 import os
 import sys
+import datetime
 sys.path.insert(0, os.path.abspath('.'))
+today_date = datetime.date.today()
 
 
 # -- Project information -----------------------------------------------------
 
 project = "Translator's handbook"
-copyright = '2019, i18n team'
-author = 'i18n team'
+author = "The Carpentrie's i18n team"
+copyright = f"2019-{today_date:%Y}, {author}. Creative Commons Attribution 4.0 International license."
+
 
 
 # -- General configuration ---------------------------------------------------
@@ -36,7 +39,7 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'LICENSE.rst']
 
 
 # -- Options for HTML output -------------------------------------------------
