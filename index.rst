@@ -15,16 +15,16 @@ And remember! also here you should follow our `Code of Conduct`_.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Translator Guide
 
+   guide/translator/index.rst
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Maintainer Guide
 
-Indices and tables
-==================
+   guide/maintainer/index.rst
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
 .. _the Carpentries: https://carpentries.org/
 .. _Transifex: https://www.transifex.com/carpentries-i18n/
