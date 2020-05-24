@@ -26,6 +26,13 @@ And remember! also here you should follow our `Code of Conduct`_.
    guide/maintainer/index.rst
 
 
+TODO list
+---------
+
+This is a list of things that still need attention.
+
+.. todolist::
+
 .. _the Carpentries: https://carpentries.org/
 .. _Transifex: https://www.transifex.com/carpentries-i18n/
 .. _Code of Conduct: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html

@@ -112,6 +112,14 @@ Once the upload has been completed, you should see the resources available in
 the project page in Transifex (e.g., `python-novice-gapminder
 <https://www.transifex.com/carpentries-i18n/python-novice-gapminder/dashboard/>`_)
 
+Bring the translations to the rendered page
+-------------------------------------------
+
+.. todo::
+
+   add details about how to bring the translated strings.
+
+
 
 .. _create an access token on GitHub: https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
 .. _add the project in Transifex: https://www.transifex.com/carpentries-i18n/add/

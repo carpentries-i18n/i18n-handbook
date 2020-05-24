@@ -32,6 +32,7 @@ copyright = f"2019-{today_date:%Y}, {author}. Creative Commons Attribution 4.0 I
 # ones.
 extensions = [
     "sphinx.ext.extlinks",
+    "sphinx.ext.todo",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -60,3 +61,6 @@ extlinks = {'project': ('https://github.com/orgs/carpentries-i18n/projects/%s',
             'org-repo': ('https://github.com/carpentries-i18n/%s', ''),
             'commit-png': ('https://github.com/carpentries-i18n/python-novice-gapminder/commit/%s', 'commit '),
             }
+
+todo_include_todos = True
+todo_link_only = True
