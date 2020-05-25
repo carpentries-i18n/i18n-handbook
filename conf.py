@@ -19,7 +19,7 @@ today_date = datetime.date.today()
 
 # -- Project information -----------------------------------------------------
 
-project = "Translator's handbook"
+project = "Carpentries Internationalisation Handbook"
 author = "The Carpentrie's i18n team"
 copyright = f"2019-{today_date:%Y}, {author}. Creative Commons Attribution 4.0 International license."
 
