@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Translator's handbook's documentation!
-=================================================
+Welcome to Carpentries Internationalisation Handbook
+====================================================
 
 This guide documents the infrastructure to translate `the
 Carpentries`_'s lessons. In here we include a translator guide using `Transifex`_
@@ -25,6 +25,11 @@ And remember! also here you should follow our `Code of Conduct`_.
 
    guide/maintainer/index.rst
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Contribute to this handbook
+
+   guide/contributor/index.rst
 
 TODO list
 ---------
