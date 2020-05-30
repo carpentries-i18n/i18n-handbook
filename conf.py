@@ -59,6 +59,7 @@ html_static_path = ['_static']
 extlinks = {'project': ('https://github.com/orgs/carpentries-i18n/projects/%s',
                         'project '),
             'org-repo': ('https://github.com/carpentries-i18n/%s', ''),
+            'issue-p4g': ('https://github.com/carpentries-i18n/po4gitbook/issues/%s', 'po4gitbook#'),
             'commit-png': ('https://github.com/carpentries-i18n/python-novice-gapminder/commit/%s', 'commit '),
             }
 
