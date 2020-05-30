@@ -2,8 +2,8 @@ Carpentries Internationalisation Handbook
 =========================================
 
 .. image:: https://readthedocs.org/projects/carpentries-i18n-handbook/badge/?version=latest
-:target: https://carpentries-i18n-handbook.readthedocs.io/en/latest/?badge=latest
-:alt: Documentation Status
+   :target: https://carpentries-i18n-handbook.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
 
 This repository contains the Sphinx project with the information of how to
 translate and maintain the translations.
