@@ -25,6 +25,11 @@ And remember! also here you should follow our `Code of Conduct`_.
 
    guide/maintainer/index.rst
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Contribute to this handbook
+
+   guide/contributor/index.rst
 
 TODO list
 ---------
