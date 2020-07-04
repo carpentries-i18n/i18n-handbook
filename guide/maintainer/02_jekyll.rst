@@ -1,20 +1,26 @@
 Working with Jekyll lessons
 ===========================
 
+.. note::
+
+   Some of the steps below needs to be run by someone with write access to the
+   `carpentries-i18n`_ organisation.
+
+
 Prepare the lesson
 ------------------
 
 To prepare a jekyll-based lesson for translation we need few steps:
 
-#. Fork the repository under :org-repo:``
+#. Fork the repository under the `carpentries-i18n`_ organisation.
 #. Set-it up to use the Jekyll-theme (i.e., remove everything that's not lesson content).
 #. Create it as a submodule within the :org-repo:`i18n` repository.
 #. Generate the `po` files using :org-repo:`po4gitbook` software.
-#. Since `po4gitbook` generates the whole lesson as a single file, break it into espisodes with ``splitpot.py``.
+#. Since `po4gitbook` generates the whole lesson as a single file, break it into episodes with ``splitpot.py``.
 #. Create the project on Transifex and push the source files.
 
 The first three steps can be done automatically using ``lesson2theme.py`` from
-:org-repo:`i18n`. You'll need to `create an access token on GitHub`_
+:org-repo:`i18n`. You'll need to `create an access token on GitHub`_ first.
 
 .. code-block:: bash
 
@@ -112,6 +118,18 @@ Once the upload has been completed, you should see the resources available in
 the project page in Transifex (e.g., `python-novice-gapminder
 <https://www.transifex.com/carpentries-i18n/python-novice-gapminder/dashboard/>`_)
 
+Finally, add the ``<lesson>.pot`` file to the repository and push it to GH for
+review and merge with ``master``.
+
+
+.. warning::
+
+   Some times (e.g., :issue-p4g:`6`) you may encounter that something fails in
+   the process. If you encounter a similar problem, please add it as an issue to
+   the right repository. If you don't know which one is the correct one, then
+   add it to :org-repo:`i18n`.
+
+
 Bring the translations to the rendered page
 -------------------------------------------
 
@@ -120,6 +138,7 @@ Bring the translations to the rendered page
    add details about how to bring the translated strings.
 
 
-
+.. _carpentries-i18n: https://github.com/carpentries-i18n
 .. _create an access token on GitHub: https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
 .. _add the project in Transifex: https://www.transifex.com/carpentries-i18n/add/
+
