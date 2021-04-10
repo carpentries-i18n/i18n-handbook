@@ -70,6 +70,7 @@ Now you should have a new file under the ``po`` directory:
    python-novice-gapminder.pot
    ...
 
+.. _jekyll-chunks:
 
 That ``pot`` file is the template that we will use to break it up into chunks
 first and then send these to transifex.
@@ -133,9 +134,77 @@ review and merge with ``master``.
 Bring the translations to the rendered page
 -------------------------------------------
 
+Once a lesson has been translated on Transifex (or you want to see its
+progress), we can pull the files as:
+
+.. code-block:: bash
+
+   i18n (git)-[python-novice-gapminder]$ language="es"
+   i18n (git)-[python-novice-gapminder]$ lesson="python-novice-gapminder"
+   python-novice-gapminder (git)-[python-novice-gapminder]$ pushd transifex/${lesson}
+   python-novice-gapminder (git)-[python-novice-gapminder]$ ls -F
+   es/  pot/
+   python-novice-gapminder (git)-[python-novice-gapminder]$ tx pull -l ${language} --parallel
+   ...
+   [#########################] 100% (34/34)
+   tx INFO: Done.
+
+
+The ``tx`` command line offers multiple options as to define a minimum
+percentage of translations (``--minimum-perc``), chose only files that has been
+reviewed (``--mode``). Check them with ``tx pull --help``.
+
+Once we have all the translated files downloaded we need to merge them to a
+single file for the whole lesson (i.e., the opposite of what we did
+:ref:`previously <jekyll-chunks>`).
+
+.. code-block:: bash
+
+   python-novice-gapminder (git)-[python-novice-gapminder]$ popd
+   i18d (git)-[python-novice-gapminder]$ python helpers/splitpot.py po/${lesson}.pot --join transifex/${lesson} --lang ${language}
+
+
+Now we've got all the chunks into a single file named:
+``{lesson}.{language}.po`` under the ``po`` directory.
+
+Next we need to generate the markdown files. To do so we use the `po4gitbook`
+tool.
+
+.. code-block:: bash
+
+   i18d (git)-[python-novice-gapminder]$ ../po4gitbook/compile.sh
+
+
+.. note::
+
+   The ``compile.sh`` will throw errors if the format of the ``po`` file is not
+   right (e.g., if there's not a period after each year in the translators list).
+
+
+This command will generate all the markdown files of the lesson in a new
+directory under the ``locale/{language}/lesson`` directory.
+
+The next step is integrate these new files with the original lesson so the source
+lesson and its translations get rendered under the same page. This requires the
+following steps:
+
+1. move the new files to its own repository: ``{lesson}-{language}`` and upload
+   it into github
+1. Add that new repository as a sub-module of the source lesson: ``{lesson}/_locale/{language}``
+1. The website should now show both languages in the same page
+
+This helper tool automates these steps
+
+.. code-block:: bash
+
+   i18d (git)-[python-novice-gapminder]$ python helpers/trans2lesson.py locale/es/python-novice-gapminder python-novice-gapminder
+   Repository https://github.com/carpentries-i18n/python-novice-gapminder.git updated with es.
+
+
 .. todo::
 
-   add details about how to bring the translated strings.
+   Find the way to Credit translators
+
 
 
 .. _carpentries-i18n: https://github.com/carpentries-i18n
