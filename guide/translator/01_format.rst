@@ -29,6 +29,14 @@ If the link is different, Transifex will show a warning as you've translated a
 link. That's OK.
 
 
+Internal links
+**************
+
+.. todo::
+
+   Find how to "translate" these so it works in the rendered lesson.
+
+
 New lines
 ---------
 

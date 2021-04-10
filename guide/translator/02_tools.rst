@@ -32,7 +32,10 @@ POEDIT
 ------
 
 `POEDIT`_ is a multi-platform desktop software. It has support to integrate with
-`Crowdin`_ (a platform similar to `Transifex`_).
+`Crowdin`_ (a platform similar to `Transifex`_). One of the advantages of using a
+software locally is that you can see some metadata that Transifex is not showing
+(e.g., comments made by the po4gitbook tool), however, comments you add in the
+file are not uploaded to the platform.
 
 Gtranslator
 -----------
